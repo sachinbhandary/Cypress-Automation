@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
+    "@cypress/browserify-preprocessor": "latest",
+    "cypress": "^12.0.1",
+    "init": "^0.1.2",
+    "jquery": "^3.6.2"
+  },
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "reporter": "mochawesome",
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run headTest -- --browser chrome",
+    "rechordDashboardTest": "npm run test -- --record --key 46300529-6bab-4363-b96a-62d89435822a --reporter mochawesome"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
+    "cross-env": "^7.0.3",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
+  }
+}
