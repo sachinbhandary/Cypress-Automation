@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-12T12:31:19.101Z",
+    "end": "2022-12-12T12:31:45.629Z",
+    "duration": 26528,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bfb02491-ab46-455b-aad7-62e2ce740522",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\StandAloneTest.js",
+      "file": "cypress\\integration\\examples\\StandAloneTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f9427c7c-4355-4499-96bf-f036e4960974",
+          "title": "End to End Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 1",
+              "fullTitle": "End to End Test Suite Test Case 1",
+              "timedOut": null,
+              "duration": 23001,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('url'));\ncy.get('#login2').click();\ncy.wait(1000);\ncy.get('#loginusername').type(this.data.userName);\ncy.get('#loginpassword').type(this.data.password);\ncy.get('button[onclick=\"logIn()\"]').click();\ncy.contains('Welcome rob543').should('be.visible');\ncy.get('#tbodyid').find('.card.h-100').each((item, index, $list) => {\n  const requiredItem = item.find('.hrefch').text();\n  if (requiredItem.includes('Sony xperia z5')) {\n    cy.wrap(item).find('img').click();\n  }\n});\ncy.contains('Add to cart').click();\ncy.get('.nav-item.active').click();\ncy.get('li[class=\"nav-item active\"]').click;\ncy.get('#tbodyid').find('.card.h-100').each((item, index, $list) => {\n  const requiredItem = item.find('.hrefch').text();\n  if (requiredItem.includes('Samsung galaxy s6')) {\n    cy.wrap(item).find('img').click();\n  }\n});\ncy.contains('Add to cart').click();\ncy.contains('Cart').click(); // cy.wait(2000)\nvar allItems = [];\ncy.get('tr td:nth-child(2)').each((item, index, list) => {\n  allItems.push(item.text());\n}).then(function () {\n  expect(allItems).to.have.lengthOf(2);\n  expect(this.data.itemName).to.include.members(allItems);\n}); // cy.get('tr td:nth-child(2)').then(($els) => Cypress._.map($els, 'innerText'))        \n// .should('deep.equal',this.data.itemName)\nvar sum = 0;\ncy.get('tr td:nth-child(3)').each(($el, index, $list) => {\n  const amount = $el.text();\n  sum = Number(sum) + Number(amount);\n}).then(function () {\n  cy.log(sum);\n});\ncy.get('#totalp').then(function (element) {\n  const totalAmount = element.text();\n  expect(Number(totalAmount)).to.equal(sum);\n});\ncy.get('.col-lg-1 > .btn').click();\ncy.wait(1000);\ncy.get('#name').type(this.data.name);\ncy.get('#country').type(this.data.country);\ncy.get('#city').type(this.data.city);\ncy.get('#card').type(this.data.card);\ncy.get('#month').type(this.data.month);\ncy.get('#year').type(this.data.year);\ncy.get('button[onclick=\"purchaseOrder()\"]').click();\ncy.get('.sweet-alert > h2').then(function (element) {\n  const actualText = element.text();\n  expect(actualText.includes('Thank you')).to.be.true;\n});\ncy.get('.confirm').click();",
+              "err": {},
+              "uuid": "b79766f1-8ad3-40cc-9b2c-9dd17e6b7550",
+              "parentUUID": "f9427c7c-4355-4499-96bf-f036e4960974",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b79766f1-8ad3-40cc-9b2c-9dd17e6b7550"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23001,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
